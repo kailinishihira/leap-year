@@ -1,13 +1,3 @@
-// var leapYear = function(year){
-//  var result;
-//   debugger;
-//   if (year % 4 === 0 || year % 400 === 0) {
-//     result = true;
-// } else if (year % 100 === 0) {
-//   result = false;
-// } else{
-//   result = false;
-// }
 var leapYear = function(year){
   if ((year % 4 === 0) && (year % 100 !== 0 || year % 400 === 0)) {
     return true;
@@ -23,9 +13,13 @@ $(document).ready(function(){
     event.preventDefault();
     var userInput = parseInt($("#year").val());
     var result = leapYear(userInput);
-    $("#result").text(result);
-
-    //leapYear(userInput);
+    $(".year").text(userInput);
+    if (result === false) {
+      $(".not").text("not");
+    } else {
+      $(".not").text("");
+    }
+    $("#result").show();
 
   });
 });
